@@ -3,7 +3,7 @@
 # Usage:
 #
 #     include sublime_text_3
-class sublime_text_3 {
+class sublime_text_3($cmdname='subl') {
   include boxen::config
   require sublime_text_3::config
 
@@ -21,7 +21,7 @@ class sublime_text_3 {
     ensure => directory
   }
 
-  file { "${boxen::config::bindir}/subl3":
+  file { "${boxen::config::bindir}/${cmdname}":
     ensure  => link,
     target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl',
     mode    => '0755',
